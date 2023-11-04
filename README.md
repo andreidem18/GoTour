@@ -1,4 +1,4 @@
-![Alt text](gotours-logo.png)
+![Alt text](gotour-logo.png)
 
 # GoTour
 
