@@ -1,4 +1,4 @@
-![GoTour logo](gotour-logo.png)
+<img src="gotour-logo.png" width="200" >
 
 # GoTour
 
