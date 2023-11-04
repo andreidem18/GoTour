@@ -1,0 +1,107 @@
+<h3 class="mb-7">
+  <i class="pi pi-info-circle"></i> Let's add some basic information about your tour... 
+</h3>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="p-float-label w-full flex flex-column gap-2 mb-6">
+      <input 
+          pInputText 
+          id="tour-name" 
+          class="p-inputtext-lg" 
+          formControlName="name"
+      />
+      <label htmlFor="tour-name">Tour Name</label>
+  </div>
+  
+  <label for="guide" class="mb-1 block">Guide</label>
+  <div class="flex mb-6">
+      <p-dropdown 
+          id="guide"
+          [options]="allGuides" 
+          optionLabel="name" 
+          [filter]="true" 
+          filterBy="name" 
+          [showClear]="true" 
+          placeholder="Select the guide of the tour"
+          class="w-7 block mr-2"
+          formControlName="guide"
+          scrollHeight="250px"
+      >
+          <ng-template pTemplate="selectedItem">
+              <div class="flex align-items-center gap-2" *ngIf="selectedGuide">
+                  <img [src]="selectedGuide.photo" class="w-3"/>
+                  <div>{{ selectedGuide.name }}</div>
+              </div>
+          </ng-template>
+          <ng-template let-guide pTemplate="item">
+              <div class="flex align-items-center gap-2">
+                  <img [src]="guide.photo" class="w-3"/>
+                  <div>{{ guide.name }}</div>
+              </div>
+          </ng-template>
+      </p-dropdown>
+      <p-button 
+          label="Add new guide" 
+          styleClass="p-button-outlined p-button-success"
+          icon="pi pi-plus" 
+          (onClick)="showGuidesForm = true"
+      ></p-button>
+  </div>
+
+  <label for="location" class="mb-1 block">Location</label>
+  <div class="flex mb-6">
+      <p-dropdown 
+          id="location" 
+          [options]="allLocations" 
+          [filter]="true"
+          formControlName="location" 
+          placeholder="Where is going to be the tour?"
+          optionLabel="name"
+          class="w-7 mr-2"
+      >
+          <ng-template let-location pTemplate="item">
+              <div class="flex align-items-center gap-2">
+                  <img [src]="getCountry(location.country)?.flag" style="width: 20px"/>
+                  <div>{{ location.name }}</div>
+              </div>
+          </ng-template>
+      </p-dropdown>
+      <p-button 
+          label="Add new location" 
+          styleClass="p-button-outlined p-button-success"
+          icon="pi pi-plus" 
+          (onClick)="showLocationsForm = true"
+      ></p-button>
+  </div>
+
+
+  <div class="flex justify-content-center flex-column gap-2 mb-6">
+      <label for="description">Description</label>
+      <p-editor 
+          [style]="{ height: '320px' }"
+          formControlName="description"
+      ></p-editor>
+  </div>
+  
+  <div class="fixed" style="bottom: 40px; right: 40px;">
+      <p-button 
+          [disabled]="myForm.invalid"
+          styleClass="p-button-lg"
+          label="Save" 
+          icon="pi pi-save" 
+          iconPos="right"
+          type="submit"
+          [loading]="isLoading"
+      ></p-button>
+  </div>
+  
+</form>
+
+<p-dialog header="Guides form" [(visible)]="showGuidesForm" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <guides-form [(showForm)]="showGuidesForm" />
+</p-dialog>
+<p-dialog header="Locations form" [(visible)]="showLocationsForm" [modal]="true" [style]="{ width: '70vw' }" [draggable]="false" [resizable]="false">
+  <location-form [(isFormVisible)]="showLocationsForm" />
+</p-dialog>
+
+<p-toast />

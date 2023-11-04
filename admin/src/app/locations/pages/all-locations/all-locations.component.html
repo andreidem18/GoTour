@@ -1,0 +1,30 @@
+<div class="flex justify-content-between">
+    <h1>Locations</h1>
+    <p-button 
+        label="Add location" 
+        icon="pi pi-plus" 
+        styleClass="p-button-success"
+        (onClick)="changeFormVisible(true)"
+    ></p-button>
+</div>
+
+
+<div class="grid">
+    <location-card 
+        class="md:col-6 lg:col-4"
+        *ngFor="let location of allLocations"
+        [location]="location" 
+        (showForm)="changeFormVisible($event)"
+    />
+</div>
+
+<p-dialog 
+    header="Locations Form" 
+    [(visible)]="isFormVisible" 
+    [modal]="true" 
+    [style]="{ width: '70vw' }" 
+    [draggable]="false" 
+    [resizable]="false"
+>
+    <location-form [(isFormVisible)]="isFormVisible" />
+</p-dialog>

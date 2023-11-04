@@ -1,0 +1,16 @@
+.bar-container{
+    display: flex;
+    align-items: center;
+}
+
+.star-container{
+    display: flex;
+    align-items: center;
+}
+
+.star-container i{
+    display: block;
+    margin-left: 5px;
+    margin-right: 8px;
+    font-size: 10px;
+}

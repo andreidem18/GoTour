@@ -1,0 +1,40 @@
+<form [formGroup]="bookingsForm">
+    <p-card header="Reserve your spot">
+        <form [formGroup]="bookingsForm" (ngSubmit)="submit()">
+
+            <div class="mb-2 flex gap-3">
+                <p-calendar 
+                    [showIcon]="true"
+                    class="block w-full font-medium"
+                    formControlName="date"
+                    dateFormat="D, M dd"
+                ></p-calendar>
+                <div class="flex align-items-center gap-1">
+                    <i class="pi pi-users text-lg"></i>
+                    <p-dropdown 
+                        [options]="peopleNumberOptions" 
+                        optionLabel=""
+                        formControlName="peopleNumber"
+                    >
+                        <ng-template let-number pTemplate="selectedItem">
+                            <div class="font-medium">{{number}}</div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+            </div>
+
+            <div class="total mb-3">
+                Total: {{peopleNumber}} × ${{tourPrice}} = <b>${{totalPrice}}</b>
+            </div>
+        
+            
+            <p-button 
+                label="Book now!" 
+                class="block w-full" 
+                type="submit"
+                styleClass="p-button-success"
+                [loading]="isLoading"
+            /> 
+        </form>
+    </p-card>
+</form>

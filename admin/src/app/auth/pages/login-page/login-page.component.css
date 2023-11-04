@@ -1,0 +1,21 @@
+
+.form{
+    width: 35%;
+    padding: 100px 30px 30px;
+}
+
+.login-banner {
+    object-fit: cover;
+    width: 65%;
+    height: 100vh;
+}
+
+
+.test-data h4 {
+    margin: 0;
+}
+
+.test-data ul {
+    margin: 0;
+    list-style: none;
+}

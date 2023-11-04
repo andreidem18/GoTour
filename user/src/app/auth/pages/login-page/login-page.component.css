@@ -1,0 +1,31 @@
+.login-container {
+    max-width: 600px;
+    margin: 120px auto 0;
+    padding: 15px;
+}
+
+.login-container .card{
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.login-container .card .header{
+    text-align: center;
+}
+
+.test-data h4 {
+    margin: 0;
+}
+
+.test-data ul {
+    margin: 0;
+    list-style: none;
+}
+
+@media (min-width: 768px) {
+
+    .login-container form{
+        padding: 30px;
+    }
+}

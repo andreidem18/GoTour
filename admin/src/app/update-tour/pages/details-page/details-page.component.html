@@ -1,0 +1,53 @@
+<h3 class="mb-7">
+    <i class="pi pi-info-circle"></i> Let's add the last details of the tour... 
+</h3>
+
+<form [formGroup]="detailsForm" (ngSubmit)="onSubmit()" >
+
+    <div class="formgrid grid">
+
+        
+        <div class="field col-6 mb-5 p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-dollar"></i></span>
+            <p-inputNumber 
+                formControlName="price" 
+                inputId="currency-us" mode="currency" currency="USD" locale="en-US"> </p-inputNumber>
+            <!-- <input formControlName="price" mode="currency" pInputNumber placeholder="Price" /> -->
+        </div>
+        <div class="field col-6 mb-5 p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-clock"></i></span>
+            <input formControlName="duration" type="text" pInputText placeholder="Duration" />
+        </div>
+        <div class="field col-6 mb-5 p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-users"></i></span>
+            <input 
+                formControlName="maxGroupSize" 
+                type="text" 
+                pInputText 
+                placeholder="Max group size" 
+            />
+        </div>
+        <div class="field col-6 mb-5 p-float-label">
+            <p-dropdown 
+                formControlName="difficulty"
+                [options]="difficulties" 
+                placeholder="Select a Difficulty" 
+                optionLabel="" 
+                inputId="difficulty-dropdown"
+            ></p-dropdown>
+            <label for="difficulty-dropdown">Difficulty</label>
+        </div>
+    </div>
+    
+    <p-button 
+        [disabled]="detailsForm.invalid"
+        styleClass="p-button-lg"
+        label="Save" 
+        icon="pi pi-save" 
+        iconPos="right"
+        type="submit"
+        class="w-full block details-page-button"
+    ></p-button>
+</form>
+
+<p-toast></p-toast>

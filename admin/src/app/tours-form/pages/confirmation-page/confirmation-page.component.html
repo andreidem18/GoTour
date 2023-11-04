@@ -1,0 +1,102 @@
+<h3 class="mb-5"><i class="pi pi-info-circle"></i> This is how your tour is going to look</h3>
+
+<div class="images-container mb-7">
+    <div class="cover-image-container">
+        <img [src]="imageCover" alt="" >
+    </div>
+    <div class="tour-images-container">
+        <div class="tour-image">
+            <img [src]="tourImgs[0]" alt="">
+        </div>
+        <div class="tour-image">
+            <img [src]="tourImgs[1]" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="lg:col-8">
+
+        <h1>{{newTour.name}}</h1>
+
+        <div [innerHTML]="newTour.description"></div>
+
+        <p-divider></p-divider>
+
+        <p>
+            <i class="pi pi-clock"></i> Duration: {{newTour.duration}}
+        </p>
+        <p>
+            <i class="pi pi-chart-line"></i> Difficulty: {{newTour.difficulty}}
+        </p>
+        <p>
+            <i class="pi pi-users"></i> Group size: {{newTour.maxGroupSize}} persons
+        </p>
+        <p-divider></p-divider>
+    </div>
+    <div class="lg:col-4">
+        <p-card header="Book your place">
+            <div class="mb-4 flex gap-3">
+                <p-calendar 
+                    [showIcon]="true"
+                    class="block w-full font-medium"
+                    dateFormat="D, M dd"
+                ></p-calendar>
+                <div class="flex align-items-center gap-1">
+                    <i class="pi pi-users text-lg"></i>
+                    <p-dropdown 
+                        [options]="[2, 3, 4, 5, 6, 7, 8]" 
+                        optionLabel=""
+                    >
+                        <ng-template let-number pTemplate="selectedItem">
+                            <div class="font-medium">{{number}}</div>
+                        </ng-template>
+                    </p-dropdown>
+                </div>
+            </div>
+        
+            
+            <p-button 
+                label="Book now!" 
+                class="block w-full" 
+                type="submit"
+                styleClass="p-button-success"
+            /> 
+        </p-card>
+    </div>
+</div>
+<h2>About the place</h2>
+<div class="grid">
+    <div class="lg:col-8">
+        <h4>{{newTour.location?.name}}</h4>
+        <p>{{newTour.location?.description}}</p>
+    </div>
+    <div class="lg:col-4">
+        <img [src]="mapImg" alt="">
+    </div>
+</div>
+
+<div class="button-submit">
+    <p-button 
+        styleClass="p-button-lg p-button-success"
+        label="Save tour" 
+        icon="pi pi-save" 
+        iconPos="right"
+        (onClick)="createTour()"
+    ></p-button>
+</div>
+
+<p-dialog 
+    [(visible)]="isLoading" 
+    [modal]="true" 
+    [draggable]="false" 
+    [resizable]="false"
+    [closable]="false"
+    [showHeader]="false"
+>
+    <div
+        class="flex align-items-center justify-content-center w-10rem h-10rem"
+    >
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</p-dialog>

@@ -1,0 +1,33 @@
+<h1>Find your favorite tour!</h1>
+
+<div class="flex gap-4 pb-8">
+
+    <div class="xs:w-12 lg:w-3">
+        <tours-filters />
+    </div>
+
+    <div class="xs:w-12 lg:w-9">
+        <form class="p-inputgroup mb-3" (ngSubmit)="searchName()">
+            <span class="p-inputgroup-addon">
+                <i class="pi pi-search"></i>
+            </span>
+            <input 
+                type="text" 
+                [formControl]="tourNameSearch" 
+                pInputText 
+                placeholder="Keyword" 
+            />
+            <button type="submit" pButton label="Search"></button>
+        </form>
+
+        <p-dataView #dv [value]="toursList">
+            <ng-template let-tour pTemplate="listItem">
+        
+                <tour-item class="col-12" [tour]="tour" />
+        
+            </ng-template>
+        </p-dataView>
+    </div>
+
+</div>
+

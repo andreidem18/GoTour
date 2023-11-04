@@ -1,0 +1,92 @@
+
+<h3 class="mb-5"><i class="pi pi-info-circle"></i> Upload some flashy images of the tour</h3>
+
+<form [formGroup]="imagesForm" (ngSubmit)="submit()">
+
+    <div class="upload-images-container">
+    
+        <div class="cover-image-container">
+            <div class="label">Cover image</div>
+            <div class="cover-image-box">
+                <img 
+                    [src]="imageCoverPreview || '../../../../assets/no-image.svg'" 
+                    alt="tour image" 
+                    class="cover-image"
+                >
+                <div 
+                    class="upload"
+                    (click)="coverImage.click()"
+                >
+                    <i class="pi pi-upload"></i>
+                </div>
+                <input 
+                    type="file" 
+                    #coverImage 
+                    class="hidden"
+                    (change)="showCoverPreview($event)"
+                >
+            </div>
+        </div>
+    
+        <div class="more-images-container">
+            <div class="label">
+                More images 
+                <p-button 
+                    styleClass="p-button-sm p-button-success"
+                    label="Add" 
+                    icon="pi pi-plus" 
+                    (click)="tourImgs.click()"
+                ></p-button>
+            </div>
+            <div class="images-grid">
+                <ng-container *ngIf="tourImgsPreview.length; else imagesPlaceholder">
+                    <div 
+                        class="image-container"
+                        *ngFor="let image of tourImgsPreview; let i = index"
+                    >
+                        <img 
+                            [src]="image" 
+                            alt="" 
+                            class="tour-image" 
+                        >
+                        <button 
+                            class="delete-button bg-red-500" 
+                            (click)="removeImage(i)"
+                            type="button"
+                        >
+                            <i class="pi pi-times"></i>
+                        </button>
+                    </div>
+                </ng-container>
+                <ng-template #imagesPlaceholder>
+                    <img 
+                        src="../../../../assets/no-image.svg" 
+                        *ngFor="let item of [1, 2, 3, 4, 5, 6]"
+                        alt="" 
+                        class="tour-image" 
+                    >
+                </ng-template>
+                
+            </div>
+            <input 
+                type="file" 
+                class="hidden"
+                multiple="true"
+                (change)="showImagesPreview($event)"
+                #tourImgs
+            >
+        </div>
+    </div>
+    
+    <div class="button-submit">
+        <p-button 
+            [disabled]="imagesForm.invalid"
+            styleClass="p-button-lg"
+            label="Next" 
+            icon="pi pi-caret-right" 
+            iconPos="right"
+            type="submit"
+        ></p-button>
+    </div>
+
+</form>

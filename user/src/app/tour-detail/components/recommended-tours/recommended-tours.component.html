@@ -1,0 +1,20 @@
+<h3 class="text-2xl font-medium">Recommended tours</h3>
+
+
+<div class="grid">
+    <div class="xl:col-3 lg:col-4 md:col-6 col-12" *ngFor="let tour of toursList">
+        <p-card [routerLink]="['/tour', tour.id]" [style]="{cursor: 'pointer'}">
+            <ng-template pTemplate="header">
+                <img alt="Card" [src]="tour.imageCover" />
+            </ng-template>
+            <ng-template pTemplate="content">
+                <strong class="text-lg font-medium mb-2 block">
+                    {{tour.name}}
+                </strong>
+                <p-rating [(ngModel)]="tour.avgReviews" [readonly]="true" [cancel]="false" />
+                <div class="mt-1 text-sm mb-3">{{tour.location.country}}</div>
+                <div class="font-medium">From {{tour.price | currency}} per adult</div>
+            </ng-template>
+        </p-card>
+    </div>
+</div>

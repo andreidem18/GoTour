@@ -1,0 +1,24 @@
+.dashboard-container{
+    display: flex;
+}
+
+.side-menu-container{
+    width: 20%;
+}
+
+.outlet-container{
+    width: 80%;
+}
+
+.outlet{
+    padding: 20px;
+    max-width: 1010px;
+    margin: 0 auto;
+}
+
+.p-tieredmenu{
+    width: 100%;
+    border-radius: 0;
+    height: 100vh;
+    padding-top: 50px;
+}

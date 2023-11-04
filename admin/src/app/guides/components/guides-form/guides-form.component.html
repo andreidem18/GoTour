@@ -1,0 +1,72 @@
+
+
+<form action="" class="mb-2" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+    <div class="flex">
+        <div class="col-7">
+            <div class="p-float-label mb-5 mt-4 w-full">
+                <input 
+                    pInputText 
+                    id="name" 
+                    class="w-full"
+                    formControlName="name"
+                />
+                <label htmlFor="name">Name</label>
+            </div>
+            <div class="p-float-label mb-5 w-full">
+                <input 
+                    pInputText 
+                    id="email" 
+                    class="w-full"
+                    formControlName="email"
+                />
+                <label htmlFor="email">Email</label>
+            </div>
+            <div class="p-float-label mb-5 w-full">
+                <input 
+                    pInputText 
+                    id="password" 
+                    type="password" 
+                    class="w-full"
+                    formControlName="password"
+                />
+                <label htmlFor="password">Password</label>
+            </div>
+        </div>
+        <div class="col-5 pl-3">
+            <input 
+                type="file" 
+                accept="image/*" 
+                (change)="showPreview($event)" 
+                class="hidden"
+                #imageInput 
+            />
+            <!-- Image Preview -->
+            <div class="image-preview" (click)="imageInput.click()" >
+                <img [src]="imageURL || '../../../../assets/default-user-image.jpg'" [alt]="userForm.value.name">
+                <div class="upload">
+                    <i class="pi pi-upload"></i>
+                </div>
+            </div>
+            <!-- <img src="../../../../assets/default-user-image.jpg" alt=""> -->
+        </div>
+    </div>
+    
+    <div class="flex justify-content-end mt-3">
+        <p-button 
+            label="Save" 
+            icon="pi pi-save" 
+            type="submit"
+            [loading]="isLoading"
+        ></p-button>
+        <p-button 
+            label="Cancel" 
+            icon="pi pi-times" 
+            styleClass="p-button-secondary"
+            class="ml-2"
+            (onClick)="closeForm()"
+        ></p-button>
+    </div>
+
+</form>
+

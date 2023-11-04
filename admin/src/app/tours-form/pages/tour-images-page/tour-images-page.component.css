@@ -1,0 +1,125 @@
+.label{
+    margin-bottom: 5px;
+    height: 34px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.upload-images-container{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cover-image-container{
+    margin-bottom: 20px;
+}
+
+.cover-image-container .cover-image-box{
+    position: relative;
+}
+
+.cover-image-container .cover-image-box .cover-image{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.cover-image-container .cover-image-box .upload{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: .2s;
+}
+
+
+.cover-image-container .cover-image-box .upload i{
+    font-size: 30px;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 50%;
+    padding: 30px;
+    color: #fff;
+}
+
+.cover-image-container .cover-image-box .upload:hover{
+    opacity: 1;
+}
+
+.images-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+}
+
+.tour-image{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.image-container{
+    position: relative;
+}
+
+.image-container .delete-button{
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.image-container .delete-button i{
+    font-size: 11px;
+}
+
+.tour-image.upload{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tour-image.upload i{
+    padding: 30px;
+    background: rgba(0, 0, 0, .5);
+    border-radius: 50%;
+    color: rgb(193, 193, 193);
+    font-size: 30px;
+}
+
+.tour-image, .cover-image{
+    background: #fff;
+    border-radius: 10px;
+}
+
+@media (min-width: 992px) {
+    .upload-images-container{
+        max-width: none;
+        display: flex;
+    }
+
+    .cover-image-container{
+        width: 60%;
+        padding-right: 10px;
+    }
+
+    .more-images-container{
+        width: 40%;
+        padding-left: 10px;
+    }
+}

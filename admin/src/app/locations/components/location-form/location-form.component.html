@@ -1,0 +1,101 @@
+
+<form [formGroup]="locationForm" (ngSubmit)="submit()">
+
+    <div class="flex pt-4">
+
+        <div class="w-6 pr-3">
+            <div class="p-float-label mb-5">
+                <input 
+                    pInputText 
+                    id="name" 
+                    class="w-full block" 
+                    formControlName="name"
+                />
+                <label htmlFor="name">Name</label>
+            </div>
+            
+            <p-dropdown 
+                [options]="countriesList" 
+                optionLabel="name" 
+                [filter]="true" 
+                filterBy="name" 
+                [showClear]="true" 
+                placeholder="Select a Country"
+                class="mb-5 block"
+                formControlName="country"
+            >
+                <ng-template pTemplate="selectedItem">
+                    <div class="flex align-items-center gap-2" *ngIf="selectedCountry">
+                        <img [src]="selectedCountry.flag" style="width: 18px"/>
+                        <div>{{ selectedCountry.name }}</div>
+                    </div>
+                </ng-template>
+                <ng-template let-country pTemplate="item">
+                    <div class="flex align-items-center gap-2">
+                        <img [src]="country.flag" style="width: 18px"/>
+                        <div>{{ country.name }}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        
+            <div class="p-float-label mb-5 mt-4">
+                <input 
+                    pInputText 
+                    id="name" 
+                    class="w-full block" 
+                    formControlName="address"
+                />
+                <label htmlFor="name">Address</label>
+            </div>
+        
+            <div class="p-float-label">
+                <textarea 
+                    id="description" 
+                    rows="8" 
+                    pInputTextarea
+                    class="w-full"
+                    formControlName="description"
+                    [autoResize]="false"
+                ></textarea>
+                <label for="description">Description</label>
+            </div>
+        </div>
+    
+    
+        <div class="w-6 pl-3 flex flex-column">
+            <div class="flex mb-5">
+                <div class="p-float-label w-6 mr-2">
+                    <input pInputText id="latitude" class="w-full" formControlName="lat" (input)="onInput()" />
+                    <label htmlFor="latitude">Latitude</label>
+                </div>
+                <div class="p-float-label w-6 ml-2">
+                    <input pInputText id="longitude" class="w-full" formControlName="long" (input)="onInput()" />
+                    <label htmlFor="longitude">Longitude</label>
+                </div>
+            </div>
+    
+            <div 
+                class="form-map-container"
+                #formMapContainer
+            ></div>
+        </div>
+    </div>
+
+    <div class="flex justify-content-end mt-3">
+        <p-button 
+            label="Save" 
+            icon="pi pi-save" 
+            type="submit"
+            [loading]="isLoading"
+        ></p-button>
+        <p-button 
+            label="Cancel" 
+            icon="pi pi-times" 
+            styleClass="p-button-secondary"
+            class="ml-2"
+            (onClick)="closeForm()"
+        ></p-button>
+    </div>
+
+</form>
+

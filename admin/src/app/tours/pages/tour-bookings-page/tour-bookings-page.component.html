@@ -1,0 +1,21 @@
+
+<ng-container *ngIf="isLoading; else bookingsContainer">
+    Loading
+</ng-container>
+<ng-template #bookingsContainer >
+
+    <ng-container *ngIf="bookings.length; else noBookings">
+        <p-dataView #dv [value]="bookings">
+            <ng-template let-booking pTemplate="listItem">
+                <tours-booking-item [booking]="booking" class="col-12"/>
+            </ng-template>
+        </p-dataView>
+
+    </ng-container>
+    <ng-template #noBookings>
+        This tour doesn't have bookings yet
+    </ng-template>
+    
+    
+</ng-template>
+

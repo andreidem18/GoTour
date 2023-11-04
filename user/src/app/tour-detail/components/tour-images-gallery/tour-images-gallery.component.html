@@ -1,0 +1,20 @@
+<p-galleria 
+    [value]="images" 
+    [visible]="isGalleryVisible" 
+    (visibleChange)="visibleChanges($event)"
+    [responsiveOptions]="responsiveOptions" 
+    [containerStyle]="{'max-width': '50%'}" 
+    [numVisible]="9"
+    [circular]="true" 
+    [fullScreen]="true" 
+    [showItemNavigators]="true"
+>
+    <ng-template pTemplate="item" let-image>
+        <img [src]="image.url" style="width: 100%; display: block;"/>
+    </ng-template>
+    <ng-template pTemplate="thumbnail" let-image>
+        <div class="grid grid-nogutter justify-content-center">
+            <img [src]="image.url" style="display: block;"/>
+        </div>
+    </ng-template>
+</p-galleria>

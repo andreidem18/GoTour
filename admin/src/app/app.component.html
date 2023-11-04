@@ -1,0 +1,7 @@
+<h1 *ngIf="!finishedAuthStatus() else router">Loading</h1>
+<ng-template #router>
+  <router-outlet />
+</ng-template>
+<p-confirmDialog [style]="{width: '50vw'}" >
+</p-confirmDialog>
+<p-toast></p-toast>

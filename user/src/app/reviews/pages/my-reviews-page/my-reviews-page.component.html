@@ -1,0 +1,8 @@
+
+<p-dataView #dv [value]="reviews" emptyMessage="You haven't written any review yet">
+    <ng-template let-review pTemplate="listItem">
+
+        <review-item class="col-12" [review]="review" />
+        
+    </ng-template>
+</p-dataView>

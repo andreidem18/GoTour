@@ -1,0 +1,30 @@
+.cover-image-container{
+    width: 60%;
+}
+
+.cover-image-container img{
+    height: 100%;
+    object-fit: cover;
+}
+
+.images-container{
+    display: flex;
+    gap: 3px;
+    max-height: 400px;
+}
+
+.tour-images-container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    gap: 3px;
+}
+
+.tour-images-container .tour-image{
+    height: 50%;
+}
+
+.tour-images-container .tour-image img{
+    height: 100%;
+    object-fit: cover;
+}

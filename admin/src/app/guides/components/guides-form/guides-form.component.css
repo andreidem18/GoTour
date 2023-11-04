@@ -1,0 +1,41 @@
+
+.image-preview{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.image-preview:hover{
+    cursor: pointer;
+}
+
+.image-preview:hover .upload{
+    opacity: 1;
+}
+
+.image-preview .upload{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .3);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .4s;
+}
+
+.image-preview .upload i{
+    font-size: 30px;
+    background: rgba(0, 0, 0, .5);
+    padding: 20px;
+    border-radius: 50%;
+}
+
+.image-preview img{
+    width: 100%;
+    line-height: 0;
+}

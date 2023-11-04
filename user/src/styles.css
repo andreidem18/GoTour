@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/saga-green/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+
+.container { 
+    margin-left: auto; 
+    margin-right: auto; 
+    padding: 0 15px;
+}
+@media only screen and (max-width: 576px) { .container { max-width: 100%; } }
+@media only screen and (min-width: 577px) { .container { max-width: 540px; } }
+@media only screen and (min-width: 768px) { .container { max-width: 720px; } }
+@media only screen and (min-width: 992px) { .container { max-width: 960px; } }
+@media only screen and (min-width: 1200px) { .container { max-width: 1140px; } }
+@media only screen and (min-width: 1400px) { .container { max-width: 1320px; } }
+
+
+.adaptable input{
+    width: 100%;
+}
+
+img{
+    width: 100%;
+}
+
+p-button.w-full button{
+    width: 100%;
+}
+
+p-calendar.w-full span {
+    width: 100%;
+}
+
+p-calendar.font-medium input{
+    font-weight: 500;
+}
+
+p-inputNumber.w-full span{
+    width: 100%;
+}
+
+p-progressBar.without-text {
+    width: 100%;
+}
+p-progressBar.without-text .p-progressbar-label {
+    color: rgba(0,0,0,0);
+}
+
+.login-container .p-panel {
+    max-width: 800px;
+}

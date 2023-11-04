@@ -1,0 +1,19 @@
+<p-tieredMenu 
+    [model]="options" 
+    optionLabel="name" 
+    class="side-menu"
+>
+    <ng-template 
+        let-option 
+        pTemplate="item">
+        <div 
+            class="flex align-items-center w-full gap-2"
+            [routerLink]="option.route"
+            (click)="option.command()"
+        >
+            <i [class]="option.icon"></i>
+            <div>{{ option.name }}</div>
+        </div>
+    </ng-template>
+    
+</p-tieredMenu>

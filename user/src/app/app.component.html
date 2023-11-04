@@ -1,0 +1,10 @@
+
+<ng-container *ngIf="!isPending(); else loading">
+    <router-outlet />
+</ng-container>
+<ng-template #loading>
+    loading
+</ng-template>
+<p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+
+<p-toast></p-toast>

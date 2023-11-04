@@ -1,0 +1,37 @@
+
+<p-card class="h-full">
+    <ng-template pTemplate="header">
+        <!-- <div 
+            class="map-container"
+            #mapContainer
+        ></div> -->
+        <img [src]="locationMap" alt="">
+    </ng-template>
+    <ng-template pTemplate="title">
+        <div style="min-height: 64px;">{{location.name}}</div>
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+        <img [src]="country?.flag" alt="" style="width: 18px">
+        {{location.country}}
+    </ng-template>
+    <p>
+        {{location.description.length > 180 
+            ? (location.description | slice:0:180)+"..."
+            : location.description}}
+    </p>
+    <ng-template pTemplate="footer">
+        <p-button 
+            label="Delete" 
+            icon="pi pi-trash" 
+            styleClass="p-button-danger"
+            (onClick)="onDelete()"
+        ></p-button>
+        <p-button 
+            label="Update" 
+            icon="pi pi-pencil" 
+            styleClass="p-button-warning" 
+            [style]="{ 'margin-left': '.5em' }"
+            (onClick)="onUpdate()"
+        ></p-button>
+    </ng-template>
+</p-card>

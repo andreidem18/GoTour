@@ -1,0 +1,58 @@
+
+<div class="flex justify-content-between align-items-start mb-5">
+    <h3 class="m-0">Filters</h3>
+
+    <p-button 
+        label="Clear filters" 
+        styleClass="p-button-outlined p-button-secondary"
+        *ngIf="filtersTouched"
+        (onClick)="clearFilters()"
+    ></p-button>
+</div>
+
+
+<div class="flex px-1 align-items-end gap-1 mb-4">
+    <div class="flex flex-column gap-2 adaptable">
+        <label for="min-price">Min price</label>
+        <p-inputNumber 
+            inputId="min-price" 
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+            placeholder="$ 0.00"
+            #minPrice
+        />
+    </div>
+    <div class="flex flex-column gap-2 adaptable">
+        <label for="max-price">Max price</label>
+        <p-inputNumber 
+            inputId="max-price" 
+            mode="currency"
+            currency="USD"
+            locale="en-US"
+            placeholder="$ 200.00"
+            #maxPrice
+        />
+    </div>
+    <p-button 
+        icon="pi pi-angle-right"
+        (onClick)="filterPrice(minPrice.value, maxPrice.value)"
+    ></p-button>
+</div>
+
+<strong class="block mb-1">Country</strong>
+<p-listbox 
+    [formControl]="countrySelected"
+    [options]="countriesList" 
+    optionLabel="name" 
+    [listStyle]="{ 'max-height': '250px' }" 
+    class="w-full"
+    [filter]="true"
+>
+    <ng-template let-country pTemplate="item">
+        <div class="flex align-items-center gap-2">
+            <img [src]="country.flag" style="width: 18px"/>
+            <div>{{ country.name }}</div>
+        </div>
+    </ng-template>
+</p-listbox>

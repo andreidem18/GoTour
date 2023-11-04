@@ -1,0 +1,78 @@
+<ng-container *ngIf="tour; else loading">
+
+
+    <div class="images-container mb-7">
+        <div class="cover-image-container">
+            <img [src]="tour.imageCover" alt="" >
+        </div>
+        <div class="tour-images-container">
+            <div class="tour-image pb-1">
+                <img [src]="tour.tourImgs[0].url" alt="">
+            </div>
+            <div class="tour-image">
+                <img [src]="tour.tourImgs[1].url" alt="">
+            </div>
+        </div>
+        <div class="overlay" (click)="showGallery()">
+            <button>See all images</button>
+        </div>
+    </div>
+    <tour-images-gallery 
+        [images]="allImages || []" 
+        [(isGalleryVisible)]="isGalleryVisible" 
+    />
+    
+    <div class="grid">
+        <div class="lg:col-8">
+    
+            <h1>{{tour.name}}</h1>
+    
+            <div [innerHTML]="tour.description"></div>
+    
+            <p-divider></p-divider>
+    
+            <p>
+                <i class="pi pi-clock"></i> Duration: {{tour.duration}}
+            </p>
+            <p>
+                <i class="pi pi-chart-line"></i> Difficulty: {{tour.difficulty}}
+            </p>
+            <p>
+                <i class="pi pi-users"></i> Group size: {{tour.maxGroupSize}} persons
+            </p>
+            <p-divider></p-divider>
+        </div>
+        <div class="lg:col-4">
+
+            <p-card header="Book your place">
+                <div class="mb-4 flex gap-3">
+                    <p-calendar [showIcon]="true" class="block w-full"></p-calendar>
+                    <div class="flex align-items-center gap-1">
+                        <i class="pi pi-users text-lg"></i>
+                        <p-dropdown [options]="[2, 3, 4, 5, 6, 7, 8]" optionLabel="">
+                            <ng-template let-number pTemplate="selectedItem">
+                                <div class="font-medium">{{number}}</div>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                </div>
+            </p-card>
+
+        </div>
+    </div>
+    <h2>About the place</h2>
+    <div class="grid">
+        <div class="lg:col-8">
+            <h4>{{tour.location.name}}</h4>
+            <p>{{tour.location.description}}</p>
+        </div>
+        <div class="lg:col-4">
+            <img [src]="mapImg" alt="">
+        </div>
+    </div>
+
+
+</ng-container>
+<ng-template #loading>
+    Loading...
+</ng-template>

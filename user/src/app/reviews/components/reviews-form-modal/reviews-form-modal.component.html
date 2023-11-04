@@ -1,0 +1,57 @@
+<p-dialog 
+    [header]="isUpdating ? 'Update review' : 'Create review'" 
+    [visible]="isVisible" 
+    (visibleChange)="closeForm()"
+    [modal]="true" 
+    [style]="{ width: '100%', maxWidth: '800px', margin: '0 15px' }" 
+    [draggable]="false" 
+    [resizable]="false"
+>
+    <ng-container *ngIf="tour; else noTourError">
+        <form [formGroup]="reviewsForm" (ngSubmit)="submit()">
+
+            <div class="flex flex-column align-items-center gap-2 mb-5 mt-3">
+                <img class="w-9rem" [src]="tour.imageCover" alt="">
+                <strong >{{tour.name}}</strong>
+            </div>
+    
+            <div class="flex justify-content-center gap-2 mb-5">
+                <span>Rating</span>
+                <p-rating [cancel]="false" formControlName="rating" />
+            </div>
+    
+            <span class="p-float-label mb-5 block mx-auto" style="max-width: 500px;">
+                <textarea 
+                    id="float-input" 
+                    rows="6" 
+                    class="w-full" 
+                    formControlName="description"
+                    pInputTextarea
+                ></textarea>
+                <label for="float-input">Details</label>
+            </span>
+    
+            <div class="flex gap-3 justify-content-end mx-auto" style="max-width: 500px;">
+                <button 
+                    pButton 
+                    class="p-button-secondary"
+                    (click)="closeForm()"
+                >
+                    Cancel
+                </button>
+                <button 
+                    pButton 
+                    class="p-button-primary"
+                    type="submit"
+                >
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </ng-container>
+    <ng-template #noTourError>
+        Error
+    </ng-template>
+    
+</p-dialog>

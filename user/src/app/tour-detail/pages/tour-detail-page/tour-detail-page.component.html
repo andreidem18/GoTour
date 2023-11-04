@@ -1,0 +1,62 @@
+<ng-container *ngIf="tour; else loading">
+    
+    <h1>{{tour.name}}</h1>
+    <div class="reviews-summary mb-2" >
+        <p-rating [(ngModel)]="averageRating" [readonly]="true" [cancel]="false"></p-rating>
+        <span>{{tour.reviews.length}} Reviews</span>
+    </div>
+
+    <div class="images-container mb-7">
+        <div class="cover-image-container">
+            <img [src]="tour.imageCover" alt="" >
+        </div>
+        <div class="tour-images-container">
+            <div class="tour-image pb-1">
+                <img [src]="tour.tourImgs[0].url" alt="">
+            </div>
+            <div class="tour-image">
+                <img [src]="tour.tourImgs[1].url" alt="">
+            </div>
+        </div>
+        <div class="overlay" (click)="showGallery()">
+            <button>See all images</button>
+        </div>
+    </div>
+    <tour-images-gallery 
+        [images]="allImages || []" 
+        [(isGalleryVisible)]="isGalleryVisible" 
+    />
+    
+    <div class="grid">
+        <div class="lg:col-8">
+    
+            <tour-info [tour]="tour"/>
+        </div>
+        <div class="lg:col-4">
+            <tour-booking-options />
+        </div>
+    </div>
+    <h2>About the place</h2>
+    <div class="grid">
+        <div class="lg:col-8">
+            <h4>{{tour.location.name}}</h4>
+            <p>{{tour.location.description}}</p>
+        </div>
+        <div class="lg:col-4">
+            <img [src]="mapImg" alt="">
+        </div>
+    </div>
+
+    <div class="mb-8" *ngIf="tour.reviews.length">
+        <tour-reviews />
+    </div>
+
+    <div class="mb-8">
+        <tour-recommended-tours [country]="tour.location.country" [tourId]="tour.id"/>
+    </div>
+
+
+</ng-container>
+<ng-template #loading>
+    Loading...
+</ng-template>
