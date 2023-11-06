@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'user-academlo-tours';
+  title = 'go-tours';
 
   private authService = inject(AuthService);
   private router = inject(Router);

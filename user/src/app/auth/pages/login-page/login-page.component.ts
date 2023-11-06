@@ -20,8 +20,8 @@ export class LoginPageComponent {
 
   public isLoading: boolean = false;
   public testData = {
-    email: 'daniel@gmail.com',
-    password: 'daniel1234'
+    email: 'walter@gmail.com',
+    password: 'walter1234'
   }
 
   public loginForm = this.fb.group({
