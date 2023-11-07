@@ -73,7 +73,10 @@ export class BasicInfoComponent {
   onSubmit() {
     if (!this.tourId) throw 'tourId required';
     this.isLoading = true;
-    this.toursService.updateTour(this.tourId, this.myForm.value)
+    const { guide, location, ...tourBody} = this.myForm.value;
+    tourBody.guideId = guide.id;
+    tourBody.locationId = location.id;
+    this.toursService.updateTour(this.tourId, tourBody)
       .pipe(finalize(() => this.isLoading = false))
       .subscribe(() => this.messageService.add({
         severity: 'success',
