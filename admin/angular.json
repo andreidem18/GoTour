@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "admin-frontend-academlo-tours": {
+    "go-tour-admin": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "allowedCommonJsDependencies": ["quill", "mapbox-gl"],
-            "outputPath": "dist/admin-frontend-academlo-tours",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -42,7 +42,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "admin-frontend-academlo-tours:build:production"
+              "browserTarget": "go-tour-admin:build:production"
             },
             "development": {
-              "browserTarget": "admin-frontend-academlo-tours:build:development"
+              "browserTarget": "go-tour-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "admin-frontend-academlo-tours:build"
+            "browserTarget": "go-tour-admin:build"
           }
         },
         "test": {

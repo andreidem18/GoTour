@@ -1,11 +1,12 @@
 {
-  "name": "admin-frontend-academlo-tours",
+  "name": "admin",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "envs": "node ./scripts/set-envs.js",
     "start": "npm run envs && ng serve",
     "build": "npm run envs && ng build",
+    "run-build": "http-server --proxy http://localhost:8080? dist",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
