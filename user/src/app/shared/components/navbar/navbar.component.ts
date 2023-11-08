@@ -59,6 +59,13 @@ export class NavbarComponent {
     },
   ];
 
+  constructor() {
+    this.items = this.items.map(item => ({
+      ...item,
+      command: () => this.itemsCollapsed = true,
+    }))
+  }
+
   toggleCollapsed() {
     this.itemsCollapsed = !this.itemsCollapsed;
   }

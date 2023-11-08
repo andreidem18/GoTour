@@ -21,6 +21,7 @@
         <div class="overlay" (click)="showGallery()">
             <button>See all images</button>
         </div>
+        <button class="see-images-button sm:hidden" (click)="showGallery()">See all images</button>
     </div>
     <tour-images-gallery 
         [images]="allImages || []" 
@@ -37,7 +38,7 @@
         </div>
     </div>
     <h2>About the place</h2>
-    <div class="grid">
+    <div class="grid mb-8">
         <div class="lg:col-8">
             <h4>{{tour.location.name}}</h4>
             <p>{{tour.location.description}}</p>

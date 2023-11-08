@@ -21,6 +21,7 @@
     opacity: 1;
 }
 
+.images-container .see-images-button, 
 .images-container .overlay button{
     background: #000;
     color: #fff;
@@ -31,6 +32,7 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
+    cursor: pointer;
 }
 
 .cover-image-container{

@@ -18,16 +18,7 @@ export class ReviewsFormService {
   private _isUpdating = signal<boolean>(false);
   private _selectedReview = signal<Review | null>(null);
 
-  // private _tour = signal<TourReview | null>(null);
-  private _tour = signal<TourReview | TourBooking | null>({
-    id: 32,
-    name: "Perito Moreno Glacier Day Trip",
-    imageCover: "http://res.cloudinary.com/ddflkwfsr/image/upload/v1687902048/academlo-tours/petito-cover.jpg",
-    price: "100",
-    location: {
-      country: "Argentina"
-    }
-  });
+  private _tour = signal<TourReview | null>(null);
 
   public isVisible = computed<boolean>(() => this._isVisible());
   public isUpdating = computed<boolean>(() => this._isUpdating());

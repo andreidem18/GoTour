@@ -14,6 +14,8 @@ export class AllToursComponent implements OnInit {
 
   public tourNameSearch = new FormControl('');
 
+  public filtersSidebarVisible: boolean = false;
+
   get toursList() { return this.toursService.toursList }
 
   ngOnInit(): void {
@@ -23,5 +25,9 @@ export class AllToursComponent implements OnInit {
   searchName(): void {
     if(!this.tourNameSearch.value) return;
     this.toursService.setFilter('name', this.tourNameSearch.value);
+  }
+
+  openFiltersSidebar() {
+    this.filtersSidebarVisible = true;
   }
 }

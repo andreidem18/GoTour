@@ -1,6 +1,6 @@
-<nav class="main-navbar surface-ground">
-    <div class="container ">
-        <div class="items-container surface-ground">
+<nav class="main-navbar surface-0">
+    <div class="container relative" style="z-index: 99">
+        <div class="items-container surface-0">
             <div 
                 class="logo-container flex align-items-center gap-1 h-full" 
                 [routerLink]="['/tours']"
@@ -12,7 +12,7 @@
                 >
                 <strong class="font-semibold">GoTour</strong>
             </div>
-            <button class="hamburguer" (click)="toggleCollapsed()">
+            <button class="hamburguer text-900" (click)="toggleCollapsed()">
                 <i class="pi pi-bars"></i>
             </button>
             <ul class="items normal">
@@ -30,7 +30,7 @@
             </ul>
         </div>
     </div>
-    <ul [class]="'items dropdown surface-ground ' + (itemsCollapsed && 'collapsed')">
+    <ul [class]="'items dropdown surface-0 ' + (itemsCollapsed && 'collapsed')">
         <li 
             class="item hover:surface-hover" 
             *ngFor="let item of items" 

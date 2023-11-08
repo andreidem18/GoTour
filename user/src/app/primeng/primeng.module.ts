@@ -17,6 +17,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { RatingModule } from 'primeng/rating';
+import { SidebarModule } from 'primeng/sidebar';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
@@ -43,6 +44,7 @@ import { ToastModule } from 'primeng/toast';
     PanelModule,
     ProgressBarModule,
     RatingModule,
+    SidebarModule,
     TabMenuModule,
     TagModule,
     ToastModule,

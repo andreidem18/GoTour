@@ -1,12 +1,12 @@
-<h1>Find your favorite tour!</h1>
+<h1>Find your next adventure!</h1>
 
 <div class="flex gap-4 pb-8">
 
-    <div class="xs:w-12 lg:w-3">
+    <div class="hidden lg:block lg:col-3">
         <tours-filters />
     </div>
 
-    <div class="xs:w-12 lg:w-9">
+    <div class="col-12 lg:col-9">
         <form class="p-inputgroup mb-3" (ngSubmit)="searchName()">
             <span class="p-inputgroup-addon">
                 <i class="pi pi-search"></i>
@@ -19,6 +19,13 @@
             />
             <button type="submit" pButton label="Search"></button>
         </form>
+        <div class="text-right mb-4 lg:hidden" (click)="openFiltersSidebar()">
+            Filters <i class="pi pi-filter-fill text-600"></i>
+        </div>
+
+        <p-sidebar [(visible)]="filtersSidebarVisible" position="right" class="lg:hidden">
+            <tours-filters />
+        </p-sidebar>
 
         <p-dataView #dv [value]="toursList">
             <ng-template let-tour pTemplate="listItem">

@@ -1,11 +1,11 @@
 
 <ng-container *ngIf="!isLoading; else loading">
     
-    <div class="flex gap-5">
+    <div class="flex flex-wrap ">
     
-        <tour-reviews-chart [reviews]="reviews" class="w-2" />
+        <tour-reviews-chart [reviews]="reviews" class="col-12 sm:col-5 lg:col-4 xl:col-3" />
     
-        <p-dataView #dv [value]="reviews" class="w-10" emptyMessage="This tour doesn't have reviews yet">
+        <p-dataView #dv [value]="reviews" class="col-12 sm:col-7 lg:col-8 xl:col-9" emptyMessage="This tour doesn't have reviews yet">
             <ng-template let-review pTemplate="listItem">
                 <div class="col-12">
                     <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
