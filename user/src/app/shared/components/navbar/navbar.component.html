@@ -1,33 +1,37 @@
 <nav class="main-navbar surface-0">
-    <div class="container relative" style="z-index: 99">
-        <div class="items-container surface-0">
-            <div 
-                class="logo-container flex align-items-center gap-1 h-full" 
-                [routerLink]="['/tours']"
-            >
-                <img 
-                    src="../../../../assets/gotours-logo.png" 
-                    alt="logo" 
-                    class="logo"
+    <div class="relative" style="z-index: 99;">
+    
+        <div class="container">
+            <div class="items-container surface-0">
+                <div 
+                    class="logo-container flex align-items-center gap-1 h-full" 
+                    [routerLink]="['/tours']"
+                    (click)="itemsCollapsed = true"
                 >
-                <strong class="font-semibold">GoTour</strong>
+                    <img 
+                        src="../../../../assets/gotours-logo.png" 
+                        alt="logo" 
+                        class="logo"
+                    >
+                    <strong class="font-semibold">GoTour</strong>
+                </div>
+                <button class="hamburguer text-900" (click)="toggleCollapsed()">
+                    <i class="pi pi-bars"></i>
+                </button>
+                <ul class="items normal">
+                    <li 
+                        *ngFor="let item of items" 
+                        class="item" 
+                        [routerLink]="item.routerLink"
+                        (click)="item.command?.()"
+                    >
+                        <i [class]="item.icon"></i>
+                        <span class="item-label">
+                            {{item.label}}
+                        </span>
+                    </li>
+                </ul>
             </div>
-            <button class="hamburguer text-900" (click)="toggleCollapsed()">
-                <i class="pi pi-bars"></i>
-            </button>
-            <ul class="items normal">
-                <li 
-                    *ngFor="let item of items" 
-                    class="item" 
-                    [routerLink]="item.routerLink"
-                    (click)="item.command?.()"
-                >
-                    <i [class]="item.icon"></i>
-                    <span class="item-label">
-                        {{item.label}}
-                    </span>
-                </li>
-            </ul>
         </div>
     </div>
     <ul [class]="'items dropdown surface-0 ' + (itemsCollapsed && 'collapsed')">

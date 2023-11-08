@@ -20,27 +20,6 @@ export class NavbarComponent {
 
   get authStatus() { return this.authService.authStatus() }
 
-  authStatusEffect = effect(() => {
-    if (this.authService.authStatus() === AuthStatus.authenticated) {
-      this.items = this.items.filter(i => i.label !== 'Login');
-      this.items.push({
-        label: 'Logout',
-        icon: 'pi pi-fw pi-sign-out',
-        command: () => this.authService.logout(),
-        routerLink: '/auth/login'
-      })
-    } else {
-      this.items = this.items.filter(i => i.label !== 'Logout');
-      this.items.push({
-        label: 'Login',
-        icon: 'pi pi-fw pi-user',
-        routerLink: '/auth'
-      })
-    }
-  })
-
-  public itemsCollapsed: boolean = true;
-
   public items: MenuItem[] = [
     {
       label: 'Tours',
@@ -60,13 +39,44 @@ export class NavbarComponent {
   ];
 
   constructor() {
-    this.items = this.items.map(item => ({
-      ...item,
-      command: () => this.itemsCollapsed = true,
-    }))
+    this.setCloseItem();
   }
+
+  authStatusEffect = effect(() => {
+    if (this.authService.authStatus() === AuthStatus.authenticated) {
+      this.items = this.items.filter(i => i.label !== 'Login');
+      this.items.push({
+        label: 'Logout',
+        icon: 'pi pi-fw pi-sign-out',
+        command: () => {
+          this.authService.logout();
+        },
+        routerLink: '/auth/login'
+      })
+    } else {
+      this.items = this.items.filter(i => i.label !== 'Logout');
+      this.items.push({
+        label: 'Login',
+        icon: 'pi pi-fw pi-user',
+        routerLink: '/auth'
+      })
+    }
+    this.setCloseItem();
+  })
+
+  public itemsCollapsed: boolean = true;
 
   toggleCollapsed() {
     this.itemsCollapsed = !this.itemsCollapsed;
+  }
+
+  setCloseItem() {
+    this.items = this.items.map(item => ({
+      ...item,
+      command: () => {
+        item.command?.();
+        this.itemsCollapsed = true;
+      },
+    }))
   }
 }
