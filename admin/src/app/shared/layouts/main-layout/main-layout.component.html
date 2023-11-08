@@ -1,7 +1,11 @@
+<!-- Navbar -->
+<app-navbar [(isOpen)]="isSidebarOpen"/>
+
 <div class="dashboard-container">
+
     <!-- Side Menu -->
     <div class="side-menu-container">
-        <app-side-menu />
+        <app-side-menu [(isOpen)]="isSidebarOpen" />
     </div>
 
     <!-- Outlet -->

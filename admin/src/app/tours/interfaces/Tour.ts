@@ -20,6 +20,7 @@ export interface Tour {
     tourImgs:     TourImg[];
     user:         User;
     location:     Location;
+    avgReviews:   string;
 }
 
 export interface TourImg {

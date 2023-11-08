@@ -4,8 +4,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
   selector: 'app-main-layout',
   templateUrl: './main-layout.component.html',
   styleUrls: ['./main-layout.component.css'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class MainLayoutComponent {
 
+  public isSidebarOpen: boolean = false;
+
+  openSidebar() {
+    this.isSidebarOpen = true;
+  }
+
+  closeSidebar() {
+    this.isSidebarOpen = false;
+  }
 }

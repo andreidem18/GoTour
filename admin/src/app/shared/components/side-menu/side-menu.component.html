@@ -2,14 +2,14 @@
     [model]="options" 
     optionLabel="name" 
     class="side-menu"
+    [ngClass]="{open: isOpen}"
 >
     <ng-template 
         let-option 
         pTemplate="item">
         <div 
             class="flex align-items-center w-full gap-2"
-            [routerLink]="option.route"
-            (click)="option.command()"
+            (click)="optionClick(option)"
         >
             <i [class]="option.icon"></i>
             <div>{{ option.name }}</div>
@@ -17,3 +17,8 @@
     </ng-template>
     
 </p-tieredMenu>
+<div 
+    class="overlay" 
+    (click)="close()"
+    [ngClass]="{open: isOpen}"
+></div>

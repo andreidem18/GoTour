@@ -18,6 +18,7 @@ export interface TourItem {
     guideId:      number;
     tourImgs:     TourImg[];
     location:     Location;
+    avgReviews:   string;
 }
 
 export interface TourImg {

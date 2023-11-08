@@ -1,24 +1,55 @@
-.dashboard-container{
-    display: flex;
-}
-
-.side-menu-container{
-    width: 20%;
-}
-
-.outlet-container{
-    width: 80%;
-}
-
-.outlet{
-    padding: 20px;
-    max-width: 1010px;
-    margin: 0 auto;
-}
 
 .p-tieredmenu{
-    width: 100%;
     border-radius: 0;
     height: 100vh;
     padding-top: 50px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    z-index: 99;
+    max-width: 250px;
+    transition: .4s ease-out;
 }
+
+.open .p-tieredmenu {
+    right: 0;
+    transition: .4s ease-out;
+}
+
+.overlay {
+    position: fixed;
+    display: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, .2);
+    transition: .4s;
+}
+
+.overlay.open {
+    display: block;
+    opacity: 1;
+}
+
+.p-menuitem-link-active {
+    background: var(--primary-100);
+}
+
+
+
+@media (min-width: 992px) {
+    .p-tieredmenu{
+        left: 0;
+        padding-top: 110px;
+        width: 20%;
+    }
+
+    .overlay, .overlay.open {
+        display: none;
+    }
+}
+

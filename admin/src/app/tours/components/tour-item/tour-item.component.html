@@ -4,7 +4,10 @@
         <div class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
             <div class="flex flex-column align-items-center sm:align-items-start gap-3">
                 <div class="text-2xl font-bold text-900">{{ tour.name }}</div>
-                <!-- <p-rating [(ngModel)]="tour.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                <div class="flex align-items-center gap-2">
+                    <span class="font-semibold">{{reviews}}</span>
+                    <p-rating [(ngModel)]="tour.avgReviews" [readonly]="true" [cancel]="false" style="line-height: 0;"></p-rating>
+                </div>
                 <div class="flex align-items-center gap-3">
                     <span class="flex align-items-center gap-2">
                         <img [src]="country?.flag" style="width: 20px;" alt="">

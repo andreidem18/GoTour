@@ -1,15 +1,22 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation, inject } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { AuthService } from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-side-menu',
   templateUrl: './side-menu.component.html',
-  styleUrls: ['./side-menu.component.css']
+  styleUrls: ['./side-menu.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SideMenuComponent {
 
   private authService = inject(AuthService);
+
+  @Input()
+  public isOpen = false;
+
+  @Output()
+  public isOpenChange = new EventEmitter<boolean>();
 
   public options: MenuItem[] = [
     { 
@@ -30,14 +37,29 @@ export class SideMenuComponent {
     {
       label: 'Locations',
       icon: 'pi pi-fw pi-map-marker',
-      routerLink: '/locations',
+      routerLink: '/locations'
     },
     {
       label: 'Logout',
       icon: 'pi pi-fw pi-power-off',
-      // routerLink: '/tours/users',
       command: () => this.authService.logout(),
     }
   ]
+
+  constructor() {
+    this.options = this.options.map(option => ({
+      ...option,
+      command: () => this.optionClick(option),
+    }))
+  }
+
+  close() {
+    this.isOpenChange.emit(false);
+  }
+
+  optionClick(option: any) {
+    this.close();
+    if (option.command) option.command()
+  }
 
 }

@@ -45,7 +45,7 @@ export class TourReviewsChartComponent implements OnInit {
     let sum = 0;
     this.reviews.forEach(r => sum += +r.rating);
     const totalReviews = this.reviews.length;
-    return sum / totalReviews;
+    return Math.round(sum / totalReviews * 10) / 10;
   }
 
 

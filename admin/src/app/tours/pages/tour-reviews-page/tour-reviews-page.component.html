@@ -6,10 +6,10 @@
     
     <ng-container *ngIf="reviews.length; else noReviews">
 
-        <div class="flex">
+        <div class="flex flex-wrap">
 
-            <tour-reviews-chart [reviews]="reviews" />
-            <p-dataView #dv [value]="reviews">
+            <tour-reviews-chart class="col-12 sm:col-6 lg:col-4" [reviews]="reviews" />
+            <p-dataView class="col-12 sm:col-6 lg:col-8" #dv [value]="reviews">
                 <ng-template let-review pTemplate="listItem">
                     <div class="col-12">
                         <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
