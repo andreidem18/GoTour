@@ -5,8 +5,8 @@
 GoTour is an app to manage tours. Contains features for booking experiences, with user profiles, reviews, and real-time updates.
 
 It have three subprojects: 
-* User (Angular): where people can see the tours, can book them and review them
-* Admin (Angular): app to manage the tours, can create, and update tours, and handle the bookings and reviews
+* User (Angular): where people can see the tours, can book them and review them. https://gotour.andrescode.com/
+* Admin (Angular): app to manage the tours, can create, and update tours, and handle the bookings and reviews. https://gotour-admin.andrescode.com/
 * Backend (Node): It manages the database, receives the requests and handle all the logic of the app.
 Documentation: https://documenter.getpostman.com/view/17877993/2s9YXe957y
 
