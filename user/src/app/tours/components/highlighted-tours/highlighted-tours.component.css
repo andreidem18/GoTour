@@ -11,7 +11,7 @@
 }
 
 .slice {
-    background: rgba(0, 0, 0, .3);
+    background: rgba(0, 0, 0, .4);
     background-blend-mode: darken;
     background-size: cover;
     background-position: center;

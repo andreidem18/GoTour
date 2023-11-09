@@ -12,7 +12,8 @@ export class SliderComponent implements OnInit, OnDestroy {
   @Input()
   public autoPlay: boolean = false;
   @Input()
-  public transitionInterval: number = 4000;
+  public transitionInterval: number = 6000;
+  public animation: boolean = false;
 
   @ContentChild('slide')
   public slide!: TemplateRef<any>;
@@ -22,13 +23,20 @@ export class SliderComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.interval = setInterval(() => this.nextSlide(), this.transitionInterval);
+    setTimeout(() => this.animation = true, 500);
   }
 
   ngOnDestroy(): void {
     clearInterval(this.interval);
   }
 
+  restartInterval() {
+    clearInterval(this.interval);
+    this.interval = setInterval(() => this.nextSlide(), this.transitionInterval);
+  }
+
   nextSlide() {
+    this.restartInterval();
     if (this.activeIndex >= this.slides.length-1) {
       this.activeIndex = 0;
     } else {
@@ -37,10 +45,11 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
 
   prevSlide() {
+    this.restartInterval();
     if (this.activeIndex <= 0) {
       this.activeIndex = this.slides.length-1;
     } else {
-      ++this.activeIndex;
+      --this.activeIndex;
     }
   }
 

@@ -5,7 +5,10 @@
 
 .slider-box {
     display: flex;
-    transition: .3s ease-out;
+}
+
+.slider-box.animation {
+    transition: .4s ease-in-out;
 }
 
 .slide {

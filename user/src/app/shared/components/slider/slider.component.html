@@ -1,6 +1,7 @@
 <div class="slider-container">
     <div 
-        class="slider-box" 
+        class="slider-box"
+        [ngClass]="{animation}"
         [ngStyle]="{
             width: !slides.length ? '100%' : slides.length * 100 + '%',
             transform: 'translateX(' + -activeIndex / slides.length * 100 + '%)'
