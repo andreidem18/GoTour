@@ -27,36 +27,3 @@
         
     </div>
 </div>
-
-
-<!-- <p-galleria 
-            [value]="highlightedTours" 
-            [numVisible]="5" 
-            [circular]="true" 
-            [showItemNavigators]="true" 
-            [showThumbnails]="false" 
-            [autoPlay]="true" 
-        >
-            <ng-template pTemplate="item" let-highlighted>
-                <div 
-                    class="slice" 
-                    [ngStyle]="{'background-image': 'url('+highlighted.image+')'}"
-                >
-                    <div class="all-tours-button" (click)="allTours()">
-                        <span>View all tours</span>
-                        <i class="pi pi-arrow-down"></i>
-                    </div>
-                    <div>
-                        <strong class="title">{{highlighted.title}}</strong>
-                        <p class="description">{{highlighted.description}}</p>
-                        <p>From <b>${{highlighted.tour.price}}</b> per person</p>
-                        <button 
-                            class="view-more-button"
-                            [routerLink]="['/tour', highlighted.tourId]"
-                        >
-                            View more
-                        </button>
-                    </div>
-                </div>
-            </ng-template>
-        </p-galleria> -->
