@@ -1,6 +1,7 @@
 import { Component, OnInit, effect, inject } from '@angular/core';
 import { AuthService } from '../../../auth/services/auth.service';
 import { AuthStatus } from '../../../auth/interfaces/authStatus.enum';
+import { Router } from '@angular/router';
 
 interface MenuItem {
   label: string;
@@ -17,6 +18,7 @@ interface MenuItem {
 export class NavbarComponent {
 
   private authService = inject(AuthService);
+  private route = inject(Router);
 
   get authStatus() { return this.authService.authStatus() }
 
@@ -63,6 +65,13 @@ export class NavbarComponent {
     }
     this.setCloseItem();
   })
+
+  get isTransparent() {
+    // return this.route.url.subscribe(route => {
+    //   if route === '/tours/all-tours' && !this.itemsCollapsed
+    // })
+    return this.route.url === '/tours/all-tours' && this.itemsCollapsed
+  }
 
   public itemsCollapsed: boolean = true;
 

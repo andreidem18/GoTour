@@ -1,0 +1,41 @@
+.slider-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.slider-box {
+    display: flex;
+    transition: .3s ease-out;
+}
+
+.slide {
+    width: 100%;
+}
+
+.arrow-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+
+.arrow-container i {
+    color: #fff;
+    font-size: 20px;
+}
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
+
+.arrow {
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+

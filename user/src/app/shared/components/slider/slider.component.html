@@ -1,0 +1,23 @@
+<div class="slider-container">
+    <div 
+        class="slider-box" 
+        [ngStyle]="{
+            width: !slides.length ? '100%' : slides.length * 100 + '%',
+            transform: 'translateX(' + -activeIndex / slides.length * 100 + '%)'
+        }"
+    >
+        <div class="slide" *ngFor="let item of slides">
+            <ng-container *ngTemplateOutlet="slide; context: { $implicit: item }" ></ng-container>
+        </div>
+    </div>
+    <div class="arrow-container left">
+        <button class="arrow" (click)="prevSlide()">
+            <i class="pi pi-chevron-left"></i>
+        </button>
+    </div>
+    <div class="arrow-container right">
+        <button class="arrow" (click)="nextSlide()">
+            <i class="pi pi-chevron-right"></i>
+        </button>
+    </div>
+</div>

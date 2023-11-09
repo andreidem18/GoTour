@@ -8,13 +8,17 @@ import { AllToursComponent } from './pages/all-tours/all-tours.component';
 import { PrimengModule } from '../primeng/primeng.module';
 import { TourItemComponent } from './components/tour-item/tour-item.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { HighlightedToursComponent } from './components/highlighted-tours/highlighted-tours.component';
+import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
   declarations: [
     AllToursComponent,
     TourItemComponent,
-    FiltersComponent
+    FiltersComponent,
+    HighlightedToursComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +26,9 @@ import { FiltersComponent } from './components/filters/filters.component';
     PrimengModule,
     ReactiveFormsModule,
 
-    ToursRoutingModule
+    ToursRoutingModule,
+
+    SharedModule,
   ]
 })
 export class ToursModule { }

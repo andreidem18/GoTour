@@ -2,6 +2,8 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environtment } from 'src/environments/environments';
 import { TourItem } from '../interfaces/TourItem';
+import { HighlightedTour } from '../interfaces/HighlightedTour';
+import { Observable } from 'rxjs';
 
 interface Filters {
   [key: string]: string | string[] | number[]
@@ -42,10 +44,12 @@ export class ToursService {
       .subscribe(res => this._toursList = res);
   }
 
+  getHighlightedTours(): Observable<HighlightedTour[]> {
+    return this.http.get<HighlightedTour[]>(`${this.apiUrl}/highlighted-tours`)
+  }
+
   setFilter(name: string, value: string | string[] | number[]): void {
     this.filters[name] = value;
-    // console.log(this.filters);
-    // console.log(name, value);
     this.filterTours();
     this._filtersTouched = true;
   }

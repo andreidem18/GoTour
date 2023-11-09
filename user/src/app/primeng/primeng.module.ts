@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CardModule } from 'primeng/card';
+import { CarouselModule } from 'primeng/carousel';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/dialog';
@@ -30,6 +31,7 @@ import { ToastModule } from 'primeng/toast';
     ButtonModule,
     CalendarModule,
     CardModule,
+    CarouselModule,
     ConfirmDialogModule,
     DataViewModule,
     DialogModule,

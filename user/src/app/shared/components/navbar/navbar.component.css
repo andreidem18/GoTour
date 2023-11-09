@@ -23,6 +23,11 @@
     object-fit: contain;
 }
 
+.main-navbar.transparent, .main-navbar.transparent * {
+    background-color: transparent !important;
+    color: #fff;
+}
+
 .hamburguer {
     border: 0;
     background: none;
@@ -56,7 +61,7 @@
 }
 
 .items.dropdown.collapsed{
-    bottom: 0;
+    bottom: 80px;
     box-shadow: none;
 }
 

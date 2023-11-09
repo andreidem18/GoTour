@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       tour.hasMany(models.booking, {
         foreignKey: { allowNull: false }
       })
+      tour.hasOne(models.highlightedTour, { foreignKey: { allowNull: false } });
     }
 
   }
